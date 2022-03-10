@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@+id/nav_characters">
+
+    <fragment
+        android:id="@+id/nav_characters"
+        android:name="com.riocallos.breakingbad.ui.characters.CharactersFragment"
+        tools:layout="@layout/fragment_characters"
+        android:label="@string/app_name">
+
+        <action
+            android:id="@+id/action_character"
+            app:destination="@id/nav_character"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/nav_characters" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_character"
+        android:name="com.riocallos.breakingbad.ui.characters.CharacterFragment"
+        tools:layout="@layout/fragment_character"
+        android:label="Character Profile">
+
+        <argument
+            android:name="character"
+            app:argType="com.riocallos.breakingbad.data.models.Character"
+            app:nullable="false" />
+
+    </fragment>
+
+</navigation>
